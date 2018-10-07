@@ -415,3 +415,38 @@ flex：宽高度固定，能放几个就放几个
    盒子模型的height、width是相对于父级元素的height、width，但是padding和margin在writing-mode为水平方向时是相对于父级元素的`width`值，为垂直方向时是相对于父级元素的`height`值。
 
 3. background-size是相对于元素自身的宽高
+
+
+
+# CSS自定义属性（CSS变量）
+
+定义：
+
+```css
+:root{
+    /* 必须以--开头 */
+    --bg-color: red;
+}
+```
+
+使用：
+
+```css
+div{
+    background-color: var(--bg-color); /* 值为red */
+}
+```
+
+####Sass（预处理器）变量和CSS自定义属性之间有什么区别？
+
+- CSS自定义属性在现代浏览器中进行本机解析。 预处理器变量需要编译到标准CSS文件中，并且所有变量都转换为值。
+- JavaScript可以访问和修改自定义属性。 预处理程序变量编译一次，只有它们的最终值在客户端上可用。
+
+
+
+#### JS如何修改CSS自定义属性？
+
+```js
+document.documentElement.style.setProperty('--bg-color', blue);
+```
+
